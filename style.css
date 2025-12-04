@@ -17,7 +17,7 @@ body {
   color: #333;
 }
 
-/* ページ全体のコンテナ（木の額縁っぽい） */
+/* ページ全体のコンテナ */
 .page-wrap {
   max-width: 1120px;
   margin: 0 auto;
@@ -61,7 +61,44 @@ body.theme-barber a {
   color: #4b3a2a;
 }
 
-/* --- 美容室（白×ベージュ・透明感アップ想定） --- */
+/* 渋めバーバーテイスト強化 */
+body.theme-barber {
+  background: #f4ece4;
+}
+
+body.theme-barber header {
+  background: #f0e3d4;
+  border-bottom-color: #c79b6d;
+}
+
+body.theme-barber .logo {
+  color: #4b2b16;
+}
+
+body.theme-barber .hero {
+  background: #efe0d0;
+}
+
+body.theme-barber .badge {
+  background: #6c3a1a;
+  color: #fff;
+}
+
+body.theme-barber .btn.primary {
+  background: #6c3a1a;
+  color: #fff;
+}
+
+body.theme-barber .btn.primary:hover {
+  background: #5b3015;
+}
+
+body.theme-barber h2,
+body.theme-barber h3 {
+  color: #4b2b16;
+}
+
+/* --- 美容室（白×ベージュ・透明感） --- */
 body.theme-beauty {
   color: #42342c;
   background:
@@ -76,9 +113,21 @@ body.theme-beauty a {
   color: #c27b7f;
 }
 
-/* --- トップページ（ニュートラルなグレー系） --- */
+/* --- トップページ（ミニマル黒×グレー） --- */
 body.theme-top {
-  background: linear-gradient(135deg, #f2f5f8, #e7edf5);
+  color: #f2f2f2;
+  background: #111;
+}
+
+body.theme-top .page-wrap {
+  background: rgba(20,20,20,0.6);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+/* トップページのリンク色を明るく */
+body.theme-top a {
+  color: #e4e7ff;
 }
 
 /* ================================
@@ -104,8 +153,10 @@ body.theme-beauty header {
   border-bottom-color: rgba(210, 170, 160, 0.5);
 }
 
+/* トップページは黒系ヘッダー */
 body.theme-top header {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(20, 20, 20, 0.85);
+  border-bottom-color: rgba(255,255,255,0.08);
 }
 
 .header-inner {
@@ -163,7 +214,7 @@ nav li a:hover::after {
   width: 100%;
 }
 
-/* モバイルはとりあえず隠す（必要なら後でハンバーガー実装） */
+/* モバイルは一旦ナビ非表示 */
 @media (max-width: 720px) {
   nav ul {
     display: none;
@@ -192,8 +243,9 @@ body.theme-beauty .hero {
     linear-gradient(135deg, #fff9f7, #fdeff2);
 }
 
+/* トップページのヒーローは黒系グラデーション */
 body.theme-top .hero {
-  background: linear-gradient(135deg, #ffffff, #f3f6fb);
+  background: linear-gradient(135deg, #1a1a1a, #2a2d31);
 }
 
 .hero-inner {
@@ -250,6 +302,10 @@ body.theme-top .hero {
   margin-top: 4px;
 }
 
+/* ================================
+   ボタン
+================================ */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -263,7 +319,7 @@ body.theme-top .hero {
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.1s;
 }
 
-/* ボタン色（理容と美容で少し変えてもOK） */
+/* バーバー用ボタン */
 body.theme-barber .btn {
   border-color: #4b3a2a;
   color: #4b3a2a;
@@ -275,6 +331,7 @@ body.theme-barber .btn.primary {
   color: #fff;
 }
 
+/* ビューティ用ボタン */
 body.theme-beauty .btn {
   border-color: #c27b7f;
   color: #c27b7f;
@@ -286,10 +343,26 @@ body.theme-beauty .btn.primary {
   color: #fff;
 }
 
+/* トップページ用ボタン（白系） */
+body.theme-top .btn {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255,255,255,0.1);
+}
+
+body.theme-top .btn.primary {
+  background: #ffffff;
+  color: #111;
+}
+
 .btn:hover {
   box-shadow: 0 4px 14px rgba(0,0,0,0.15);
   transform: translateY(-1px);
 }
+
+/* ================================
+   ヒーロー画像
+================================ */
 
 .hero-image-wrap {
   position: relative;
@@ -298,10 +371,15 @@ body.theme-beauty .btn.primary {
 .hero-image-main {
   width: 100%;
   max-height: 360px;
-  object-fit: cover;
+  object-fit: contain;  /* 画像が切れないように */
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.18);
   display: block;
+}
+
+/* 黒背景用に影を少し強め */
+body.theme-top .hero-image-main {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 .hero-image-sub {
@@ -359,6 +437,12 @@ body.theme-beauty section h2 {
   border-left-color: #c27b7f;
 }
 
+/* トップページの見出しは白寄り */
+body.theme-top section h2 {
+  border-left-color: rgba(255,255,255,0.85);
+  color: #ffffff;
+}
+
 .section-lead {
   margin: 0 0 18px;
   font-size: 0.95rem;
@@ -391,7 +475,7 @@ body.theme-beauty section h2 {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 8px;
-  object-fit: cover;
+  object-fit: contain;
   max-height: 220px;
 }
 
@@ -404,6 +488,17 @@ body.theme-beauty section h2 {
   margin: 0;
   font-size: 0.85rem;
   opacity: 0.85;
+}
+
+/* トップページのカードはダーク仕様 */
+body.theme-top .card {
+  background: rgba(255,255,255,0.05);
+  color: #eaeaea;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+}
+
+body.theme-top .card p {
+  color: #ccc;
 }
 
 /* メニュー表共通 */
@@ -439,6 +534,20 @@ body.theme-beauty section h2 {
 .menu-price {
   text-align: right;
   white-space: nowrap;
+}
+
+/* トップページのメニュー表もダーク */
+body.theme-top .menu-table {
+  background: rgba(255,255,255,0.05);
+}
+
+body.theme-top .menu-table th {
+  background: rgba(255,255,255,0.08);
+  color: #ddd;
+}
+
+body.theme-top .menu-table td {
+  color: #ddd;
 }
 
 /* スタッフ系 */
@@ -510,99 +619,24 @@ footer {
   background: rgba(255,255,255,0.92);
 }
 
+/* トップページのフッターをダークに */
+body.theme-top footer {
+  background: rgba(255,255,255,0.03);
+  color: #999;
+  border-top-color: rgba(255,255,255,0.08);
+}
+
 /* ================================
-   ダークモード補正
+   画像共通（切れないように）
 ================================ */
 
-@media (prefers-color-scheme: dark) {
-  body.theme-barber,
-  body.theme-beauty,
-  body.theme-top {
-    background: #111;
-  }
-  .page-wrap {
-    background: #181818;
-    box-shadow: none;
-  }
-  header, footer {
-    background: #181818;
-    border-color: #333 !important;
-  }
-  section h2 {
-    border-left-color: #eee;
-  }
-  .card,
-  .menu-table {
-    background: #202020;
-    box-shadow: none;
-  }
-  .menu-table th {
-    background: #252525;
-  }
-  .section-lead,
-  .card p,
-  .staff-comment,
-  .info-list li,
-  .note {
-    color: #ddd;
-    opacity: 0.9;
-  }
-}
-
-
-/* === 渋めバーバーテーマ調整 === */
-
-body.theme-barber {
-  background: #f4ece4;            /* 全体の背景を少し濃いめベージュに */
-}
-
-.theme-barber header {
-  background: #f0e3d4;
-  border-bottom: 1px solid #c79b6d;
-}
-
-.theme-barber .logo {
-  color: #4b2b16;
-}
-
-.theme-barber .hero {
-  background: #efe0d0;            /* ヒーロー部分の背景を濃いめ */
-}
-
-.theme-barber .badge {
-  background: #6c3a1a;
-  color: #fff;
-}
-
-.theme-barber .btn.primary {
-  background: #6c3a1a;
-  color: #fff;
-}
-
-.theme-barber .btn.primary:hover {
-  background: #5b3015;
-}
-
-.theme-barber h2,
-.theme-barber h3 {
-  color: #4b2b16;
-}
-
-
-/* 画像が上下左右で切れないように統一 */
 img {
-  width: 100%;
-  height: auto;       /* ← これがめちゃ大事 */
-  object-fit: contain; /* or cover の場合は拡大優先。containは切れない */
-}
-
-/* カードやグリッド内で縦横比を崩さないための指定 */
-.card img, 
-.before-after-item img,
-.hero-image-main,
-.hero-image-sub {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
 }
+
+/* 必要に応じて個別で cover に戻す場合は
+   その要素だけ上書きしてOK
+*/
