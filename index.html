@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Salon Portfolio｜理容・美容サンプル</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-top">
+
+  <!-- ===== ウェルカムスクリーン ===== -->
+  <div id="welcome-screen" class="welcome-screen">
+    <div class="welcome-inner">
+      <p class="welcome-label">AI × Web Design</p>
+      <h1 class="welcome-title">Welcome to<br>Salon Portfolio</h1>
+      <p class="welcome-text">
+        理容室・美容室の架空デモサイトへようこそ。<br>
+        AI生成画像とWebデザインで構成したポートフォリオです。
+      </p>
+      <button id="enter-btn" class="btn primary welcome-btn">
+        ポートフォリオに入る
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== メインコンテンツ ===== -->
+  <div id="main-content" class="page-wrap is-hidden">
+
+    <header>
+      <div class="header-inner">
+        <div class="logo">
+          Salon Portfolio
+          <span>barber & beauty sample site</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-copy-main">AI × Web Design</p>
+          <h1 class="hero-title">Salon Portfolio</h1>
+          <p class="hero-copy-sub">
+            理容室・美容室の架空デモサイトへようこそ。
+          </p>
+
+          <p class="hero-text">
+            このポートフォリオは、AI生成画像とWebデザインを組み合わせた  
+            <strong>架空のサロンデモサイト</strong>です。
+          </p>
+
+         <div class="hero-buttons">
+  <a href="barber/" class="btn primary barber-btn">理容室（Barber）を見る</a>
+  <a href="beauty/" class="btn beauty-btn">美容室（Beauty）を見る</a>
+</div>
+        </div>
+
+        <div class="hero-image-wrap">
+          <!-- ここを 0620.JPG に変更してある前提 -->
+          <img src="img/0620.JPG" class="hero-image-main" alt="">
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section>
+        <h2>このポートフォリオについて</h2>
+        <p class="section-lead">
+          AI × Web制作のスキルをまとめた「理容・美容」サイトのデモです。
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>理容室サイト</h3>
+            <p>木目×白の落ち着いた住宅街バーバーを想定。</p>
+            <a href="barber/" class="btn" style="margin-top:10px;">開く</a>
+          </div>
+
+          <div class="card">
+            <h3>美容室サイト</h3>
+            <p>白×ベージュのナチュラルで透明感あるサロンを想定。</p>
+            <a href="beauty/" class="btn" style="margin-top:10px;">開く</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © Su-san Project – Portfolio Demo
+    </footer>
+
+  </div>
+
+  <!-- ===== JS：ウェルカム → メインへ切り替え ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const splash = document.getElementById('welcome-screen');
+      const main   = document.getElementById('main-content');
+      const btn    = document.getElementById('enter-btn');
+
+      function showMain() {
+        if (!splash.classList.contains('fade-out')) {
+          splash.classList.add('fade-out');
+          // フェードアウト後に非表示にしてメイン表示
+          setTimeout(() => {
+            splash.style.display = 'none';
+            main.classList.remove('is-hidden');
+          }, 500);
+        }
+      }
+
+      // ボタンで即表示
+      btn.addEventListener('click', showMain);
+
+      // 3秒経ったら自動でメインへ
+      setTimeout(showMain, 3000);
+    });
+  </script>
+
+</body>
+</html>
